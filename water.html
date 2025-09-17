@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chemistry: Introduction to Water (H₂O)</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#38bdf8;--muted:#94a3b8}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; margin:0; background:linear-gradient(180deg,#071023 0%,#071427 60%); color:#e6eef8}
+    .wrap{max-width:1000px;margin:3rem auto;padding:1.5rem}
+    header{display:flex;align-items:center;gap:1rem}
+    h1{margin:0;font-size:clamp(1.25rem,2vw,2rem)}
+    .card{background:rgba(255,255,255,0.03);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .row{display:grid;grid-template-columns:1fr 340px;gap:1rem;margin-top:1rem}
+    .molecule{display:flex;align-items:center;justify-content:center;padding:1rem}
+    /* simple water molecule with CSS + SVG */
+    svg{width:260px;height:auto}
+    .facts{padding:0.6rem}
+    ul{margin:0;padding-left:1.15rem;color:var(--muted)}
+    .quiz{margin-top:1rem}
+    .btn{display:inline-block;padding:0.5rem 0.8rem;border-radius:8px;border:none;background:var(--accent);color:#04243a;font-weight:600;cursor:pointer}
+    input[type=number]{width:100%;padding:0.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .result{margin-top:0.5rem;padding:0.6rem;border-radius:8px;background:rgba(255,255,255,0.02)}
+    footer{margin-top:1.5rem;color:var(--muted);font-size:0.9rem}
+    @media (max-width:880px){.row{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="card" style="padding:.6rem;display:flex;align-items:center;gap:.8rem">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden>
+          <circle cx="24" cy="24" r="22" fill="#06202a" stroke="#083046" stroke-width="1.5"/>
+          <text x="50%" y="54%" text-anchor="middle" font-size="18" fill="#38bdf8" font-family="Arial" font-weight="700">H₂O</text>
+        </svg>
+        <h1>Introduction to Water — H₂O</h1>
+      </div>
+    </header>
+
+    <div class="row">
+      <section class="card" aria-labelledby="overview">
+        <h2 id="overview">Overview</h2>
+        <p class="facts">Water (chemical formula <strong>H<sub>2</sub>O</strong>) is one of the most important molecules for life. It is a simple molecule made of two hydrogen atoms bonded to one oxygen atom. Despite its simplicity, water has unusual physical and chemical properties—many of which are crucial for biology, climate, and chemistry.</p>
+
+        <h3 style="margin-top:.8rem">Key properties</h3>
+        <ul>
+          <li><strong>Polarity:</strong> The oxygen end is slightly negative and the hydrogen ends are slightly positive — this creates hydrogen bonding.</li>
+          <li><strong>High specific heat:</strong> Water resists temperature change and stabilizes environments.</li>
+          <li><strong>Density anomaly:</strong> Ice is less dense than liquid water, so ice floats.</li>
+          <li><strong>Universal solvent:</strong> Water dissolves many ionic and polar substances.</li>
+        </ul>
+
+        <h3 style="margin-top:.8rem">Everyday uses</h3>
+        <ul>
+          <li>Drinking, cooking, agriculture.</li>
+          <li>Industrial solvent and coolant.</li>
+          <li>Medium for biochemical reactions inside cells.</li>
+        </ul>
+
+        <div class="quiz">
+          <h3>Quick interactive quiz</h3>
+          <p style="margin:0 0 .4rem 0;color:var(--muted)">Answer the two short questions and click <em>Check answers</em>.</p>
+          <label>1) How many covalent bonds are in one water molecule?</label>
+          <div style="margin:.35rem 0 0.8rem 0"><input id="q1" type="number" placeholder="Enter a number"/></div>
+
+          <label>2) At 0°C, is water a solid, liquid, or gas?</label>
+          <div style="margin:.35rem 0 0.8rem 0"><input id="q2" type="text" placeholder="solid / liquid / gas"/></div>
+
+          <button class="btn" id="checkBtn">Check answers</button>
+          <div id="quizResult" class="result" aria-live="polite"></div>
+        </div>
+
+      </section>
+
+      <aside class="card molecule" aria-labelledby="molecule-title">
+        <div>
+          <h3 id="molecule-title">Simple molecular view</h3>
+          <!-- SVG depiction of water molecule -->
+          <svg viewBox="0 0 300 200" role="img" aria-label="Diagram of a water molecule">
+            <!-- oxygen atom -->
+            <circle cx="150" cy="90" r="34" fill="#ff6b6b"/>
+            <text x="150" y="98" font-size="18" text-anchor="middle" fill="#fff">O</text>
+
+            <!-- hydrogen atoms -->
+            <circle cx="92" cy="40" r="18" fill="#ffd166"/>
+            <text x="92" y="46" font-size="14" text-anchor="middle" fill="#000">H</text>
+
+            <circle cx="208" cy="40" r="18" fill="#ffd166"/>
+            <text x="208" y="46" font-size="14" text-anchor="middle" fill="#000">H</text>
+
+            <!-- bonds (simple lines) -->
+            <line x1="120" y1="70" x2="100" y2="50" stroke="#e6eef8" stroke-width="4" stroke-linecap="round" opacity="0.9" />
+            <line x1="180" y1="70" x2="200" y2="50" stroke="#e6eef8" stroke-width="4" stroke-linecap="round" opacity="0.9" />
+
+            <!-- dotted arc to indicate angle -->
+            <path d="M110 73 Q150 30 190 73" stroke="#94a3b8" stroke-width="1.2" fill="none" stroke-dasharray="4 4"/>
+            <text x="150" y="20" font-size="12" text-anchor="middle" fill="#94a3b8">Bond angle ≈ 104.5°</text>
+          </svg>
+
+          <p style="color:var(--muted);margin-top:.6rem;font-size:.95rem">This simple diagram shows the oxygen (O) and two hydrogens (H). The bent shape is important — it creates the molecule's polarity.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p>Want a different chemistry topic (periodic table, acids & bases, stoichiometry, titration demo)? Tell me which topic and I can modify this page.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('checkBtn').addEventListener('click', function(){
+      const q1 = Number(document.getElementById('q1').value);
+      const q2 = (document.getElementById('q2').value || '').trim().toLowerCase();
+      let messages = [];
+
+      // Q1 answer: two covalent bonds (oxygen-hydrogen)
+      if (!q1){ messages.push('Q1: please enter a number.'); }
+      else if (q1 === 2){ messages.push('Q1: Correct — a water molecule has 2 covalent O–H bonds.'); }
+      else { messages.push('Q1: Not correct. Hint: oxygen bonds to two hydrogens (answer = 2).'); }
+
+      // Q2: phase at 0°C (at 1 atm) — water freezes at 0°C; ice (solid) can exist at 0°C; typical answer: solid (ice)
+      const valid = ['solid','liquid','gas','ice','water'];
+      if (!q2) { messages.push('Q2: please type solid / liquid / or gas.'); }
+      else if (['solid','ice'].includes(q2)) { messages.push('Q2: Correct — at 0°C (1 atm) water is typically in equilibrium with ice; "solid" or "ice" is acceptable.'); }
+      else if (q2 === 'liquid'){ messages.push('Q2: Partially correct — at exactly 0°C water and ice can coexist (equilibrium). But the simple expected answer is "solid" or "ice" at freezing conditions.'); }
+      else { messages.push('Q2: Not correct. Tip: water freezes at 0°C at standard pressure.'); }
+
+      document.getElementById('quizResult').innerHTML = messages.map(m => '<div>'+m+'</div>').join('');
+    });
+  </script>
+</body>
+</html>
